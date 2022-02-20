@@ -24,19 +24,19 @@ class ViewController: UIViewController {
   func playSound() {
       guard let url = Bundle.main.url(forResource: "C", withExtension: "wav") else { return }
       
-      do {
-        try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: .default)
-          try AVAudioSession.sharedInstance().setActive(true)
+//      do {
+//        try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback, mode: .default)
+//          try AVAudioSession.sharedInstance().setActive(true)
           
-          audioPlayer = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+          audioPlayer = try! AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
 
           guard let audioPlayer = audioPlayer else { return }
           
           audioPlayer.play()
-
-      } catch let error {
-          print(error.localizedDescription)
-      }
+//
+//      } catch let error {
+//          print(error.localizedDescription)
+//      }
   }
 
 }
